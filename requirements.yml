@@ -1,1 +1,16 @@
-- src: williamyeh.oracle-java
+# Oracle changed the URLs pattern, the below is commented till it is 
+# fixed by upstream galaxy role provider. If you still want to use, please
+# add the following in your playbook. Then enable below the 
+# - src: williamyeh.oracle-java
+# roles:
+#      - { role: williamyeh.oracle-java, oracle_java_rpm_url: "http://download.oracle.com/otn-pub/java/jdk/{{ oracle_java_version }}u{{ oracle_java_version_update }}-b{{ oracle_java_version_build }}/d54c1d3a095b4ff2b6607d096fa80163/{{ oracle_java_rpm_filename }}" }
+#   vars:
+#     oracle_java_version_update: 131
+#     oracle_java_version_build: 11
+#- src: williamyeh.oracle-java
+
+# for OpenJDK 9/10
+#- src: geerlingguy.java
+
+# for Oracle JDK latest (version 8/9/10)
+- src: srsp.oracle-java
