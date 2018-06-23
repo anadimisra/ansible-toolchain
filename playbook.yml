@@ -1,10 +1,31 @@
----
 - name: setup_docker
-  hosts: dockerhost
+  hosts: all
+
+  # roles:
+    # - williamyeh.oracle-java # Doesn't work due to change in oracle url.
+    
+# For OpenJDK
+  # tasks:
+  #   - name: installing repo for Java 8 in Ubuntu
+  #     apt_repository: repo='ppa:openjdk-r/ppa'
+  # roles:
+  #   - role: geerlingguy.java
+  #     when: "ansible_os_family == 'Debian'"
+  #     java_packages:
+  #       - openjdk-8-jdk
+    
+
+# Latest Oracle JDK(version 8/9/10), that works.
+# For more info check 
+# https://galaxy.ansible.com/srsp/oracle-java/
   roles:
-    - williamyeh.oracle-java
+    - srsp.oracle-java 
+
   vars:
     java_version: 8
+    java_subversion: 141
+    java_build: 15
+    jdk_tarball_hash: 336fa29ff2bb4ef291e347e091f7f4a7
     java_download_from_oracle: true
     java_remove_download: true
     java_set_javahome: false
