@@ -12,3 +12,5 @@ bin/*
 *.war
 
 pipeline/containers/*
+
+.env
